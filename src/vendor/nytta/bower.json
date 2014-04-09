@@ -1,0 +1,21 @@
+{
+  "name": "nytta",
+  "version": "0.0.1",
+  "authors": [
+    "Jonas Fromell <jonas.per.fromell@gmail.com>"
+  ],
+  "description": "javascript utility library",
+  "main": "nytta.js",
+  "keywords": [
+    "utility"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/JonasFromell/nytta",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

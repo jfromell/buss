@@ -1,0 +1,29 @@
+{
+  "name": "buss",
+  "version": "0.0.1",
+  "authors": [
+    "Jonas Fromell <jonas.per.fromell@gmail.com>"
+  ],
+  "description": "An event emitter library",
+  "main": "lib/buss.js",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "event",
+    "emitter"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/JonasFromell/buss",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "nytta": "1.0.2"
+  }
+}

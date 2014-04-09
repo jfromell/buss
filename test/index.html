@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buss Test Suite</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+</head>
+<body>
+    <div id="mocha"></div>
+
+    <script src="../lib/buss.js"></script>
+
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/sinon-chai/lib/sinon-chai.js"></script>
+    <script src="../node_modules/sinon/sinon.js"></script>
+
+    <script>
+        mocha.setup('bdd');
+        mocha.reporter('html');
+
+        var expect = chai.expect;
+    </script>
+
+    <script src="emitter.js"></script>
+    <script src="DOMemitter.js"></script>
+
+    <script>
+        // Call run() if real browser
+        if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+            mocha.run();
+        }
+        else {
+            // Polyfill Function.prototype.bind
+            if (!Function.prototype.bind) {
+                Function.prototype.bind = function (that) {
+                    if (typeof this !== 'function') {
+                        throw new TypeError('Function.prototype.bind - what is trying to be bound is not a function');
+                    }
+
+                    var aArgs = Array.prototype.slice.call(arguments, 1),
+                        fToBind = this,
+                        fNOP = function () {},
+                        fBound = function () {
+                            return fToBind.apply(this instanceof fNOP && that ? this : that, aArgs.concat(Array.prototype.slice.call(arguments)));
+                        };
+
+                    fNOP.prototype = this.prototype;
+                    fBound.prototype = new fNOP;
+
+                    return fBound;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
